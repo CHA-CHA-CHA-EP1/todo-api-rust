@@ -1,3 +1,5 @@
+use actix_web::HttpResponse;
+
 use crate::models::todo::Todo;
 use crate::repositories::database_mockup::Database;
 
@@ -17,5 +19,14 @@ impl TodoService {
         println!("create todo service.");
         let todo = self.databse_mock.create_todo(new_todo).unwrap();
         todo
+    }
+
+    pub fn get_todos(&self) -> Vec<Todo> {
+        let todos = self.databse_mock.get_todos();
+        todos
+    }
+
+    pub fn get_todo_by_id(&self, id: String) -> Option<Todo> {
+        self.databse_mock.get_todo_by_id(&id)
     }
 }

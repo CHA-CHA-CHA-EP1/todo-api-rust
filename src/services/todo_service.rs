@@ -29,4 +29,12 @@ impl TodoService {
     pub fn get_todo_by_id(&self, id: String) -> Option<Todo> {
         self.databse_mock.get_todo_by_id(&id)
     }
+
+    pub fn update_todo_by_id(&self, id: String, todo: Todo) -> Option<Todo> {
+        self.databse_mock.update_todo_by_id(&id, todo)
+    }
+
+    pub fn delete_todo_by_id(&self, id: String) -> Option<Todo> {
+        self.databse_mock.delete_todo_by_id(&id)
+    }
 }
